@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe OrderItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'validations' do
+    subject(:order_item) { build(:order_item) }
+
+    it { is_expected.to validate_numericality_of(:quantity).is_greater_than(0) }
+  end
 end
