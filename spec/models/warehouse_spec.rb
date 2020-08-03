@@ -8,4 +8,12 @@ RSpec.describe Warehouse, type: :model do
     it { is_expected.to validate_presence_of(:city) }
     it { is_expected.to validate_presence_of(:province) }
   end
+
+  describe 'associations' do
+    subject(:warehouse) { build(:warehouse) }
+
+    it { is_expected.to have_many(:products) }
+    it { is_expected.to have_many(:stocks).dependent(:destroy) }
+    it { is_expected.to have_many(:orders) }
+  end
 end

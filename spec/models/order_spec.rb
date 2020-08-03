@@ -21,4 +21,12 @@ RSpec.describe Order, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    subject(:order) { build(:order) }
+
+    it { is_expected.to belong_to(:warehouse) }
+    it { is_expected.to have_many(:order_items).dependent(:destroy) }
+    it { is_expected.to have_many(:products) }
+  end
 end
