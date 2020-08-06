@@ -1,0 +1,7 @@
+<%- # Depending what expression is true first before return -%>
+<% if flash[:notice] || flash[:alert] %>
+  <%- # Ternary operator / if/else -%>
+  <div class="alert alert"-<%= flash[:notice].present? ? 'success' : 'danger' %>">
+    <%= flash[:notice] || flash[:alert] %>
+  </div>
+<% end %>
