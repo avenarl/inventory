@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    sku { "MyString" }
-    name { "MyString" }
+    sku { rand(1000..5000) }
+    name { Faker::Device.model_name }
   end
 end
