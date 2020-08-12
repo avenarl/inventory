@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :set_orders, only: %i[show destroy edit update]
+  before_action :set_dependencies, only: %i[new edit show update create]
+  
   def index
     @orders = Order.all
   end
