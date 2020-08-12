@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Order.all
   end
 
   def new
@@ -7,9 +8,19 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+
+    if @order.save
+      redirect_to order_path(@order)
+    else
+      render :new
+    end
   end
 
   def show
+  end
+
+  def destroy
   end
 
   private
