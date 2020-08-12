@@ -11,4 +11,14 @@ class OrdersController < ApplicationController
 
   def show
   end
+
+  private
+
+  def set_orders
+    @order = Order.find(params[:id])
+  end
+
+  def set_dependencies
+    @warehouses = Warehouse.all
+  end
 end
