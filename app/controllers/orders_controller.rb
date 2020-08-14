@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order_item = @order.order_items.new
   end
 
   def destroy
