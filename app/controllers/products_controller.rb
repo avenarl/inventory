@@ -25,6 +25,15 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    if @product.update(product_params)
+      flash.notice = 'Successfully updated the product'
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
+  end
   # Private methods means that it can't be accessed by users
   # Not accessible via any routes
   private
