@@ -2,8 +2,17 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-  
-  def new 
+
+  def show
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+
+  def new
     @product = Product.new
   end
 
