@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy!
+
+    flash.notice = "Successfully deleted product #{@product.id}!"
+    redirect_to products_path
   end
 
   def new
