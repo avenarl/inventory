@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :assign_product, only: %i[edit show update destroy]
   def index
     @products = Product.all
   end
@@ -45,5 +46,9 @@ class ProductsController < ApplicationController
   # Method parameters: GET / POST request
   def products_params
     params.require(:product).permit(:name, :sku)
+  end
+
+  def assign_product
+   @product = Product.find(params[:id])
   end
 end
