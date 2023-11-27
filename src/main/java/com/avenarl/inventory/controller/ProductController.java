@@ -6,6 +6,8 @@ import com.avenarl.inventory.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/product")
 public class ProductController {
@@ -21,5 +23,9 @@ public class ProductController {
         return productService.addProduct(product);
     }
 
+    @GetMapping("/products")
+    public List<Product> getAllProducts() {
+        return productService.listProduct();
+    }
 
 }
