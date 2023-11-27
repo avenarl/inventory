@@ -13,6 +13,11 @@ public class Product {
     @Column
     private String name;
 
+    public Product(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
