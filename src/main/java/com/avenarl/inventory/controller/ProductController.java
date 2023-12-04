@@ -18,11 +18,6 @@ public class ProductController {
     @Autowired
     public ProductRepository productRepository;
 
-    @PostMapping
-    public Product addProduct(@RequestBody Product product) {
-        return productService.addProduct(product);
-    }
-
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productService.listProduct();

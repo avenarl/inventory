@@ -7,7 +7,5 @@ import java.util.List;
 
 @Service
 public interface ProductService {
-
-    Product addProduct(Product product);
     List<Product> listProduct();
 }
