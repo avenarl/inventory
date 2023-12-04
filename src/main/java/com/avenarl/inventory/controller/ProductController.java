@@ -18,6 +18,7 @@ public class ProductController {
     @Autowired
     public ProductRepository productRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productService.listProduct();
