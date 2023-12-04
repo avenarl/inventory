@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 
 const routes: Routes = [
-  { path: '', component: ProductListComponent },
+  { path: 'products', component: ProductListComponent },
 ];
 
 @NgModule({
