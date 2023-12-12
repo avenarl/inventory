@@ -24,4 +24,10 @@ public class ProductController {
         return productService.listProduct();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/products/{id}")
+    public void delete(Product product) {
+       productService.delete(product);
+    }
+
 }
