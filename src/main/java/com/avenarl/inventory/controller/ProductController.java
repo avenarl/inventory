@@ -26,8 +26,8 @@ public class ProductController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/products/{id}")
-    public void delete(Product product) {
-       productService.delete(product);
+    public void deleteProduct(Long id) {
+       productService.deleteById(id);
     }
 
 }
