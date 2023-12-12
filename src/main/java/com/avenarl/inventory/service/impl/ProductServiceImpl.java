@@ -13,7 +13,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    private Product product;
     public List<Product> listProduct() {
         return productRepository.findAll();
+    }
+    public void delete(Product product){
+        productRepository.delete(product);
     }
 }
