@@ -1,0 +1,21 @@
+stages:
+  - test
+  - deploy
+
+test_feature:
+  stage: test
+  script: echo "Running tests/feature"
+  only:
+    - /^feature\/*/
+
+deploy_to_staging:
+  stage: deploy
+  script: echo "Deploying to staging (develop)"
+  only:
+    - develop
+
+deploy_to_production:
+  stage: deploy
+  script: echo "Deploying to production (master)"
+  only:
+    - master
