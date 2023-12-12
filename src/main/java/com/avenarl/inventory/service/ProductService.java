@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProductService {
     List<Product> listProduct();
     public void deleteById(Long id);
+
+    public Product addProduct(Product product);
 }

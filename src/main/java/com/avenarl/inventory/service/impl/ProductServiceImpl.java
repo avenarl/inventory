@@ -22,5 +22,7 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
-
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
 }
