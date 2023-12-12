@@ -8,5 +8,5 @@ import java.util.List;
 @Service
 public interface ProductService {
     List<Product> listProduct();
-    public void delete(Product product);
+    public void deleteById(Long id);
 }
