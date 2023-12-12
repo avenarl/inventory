@@ -15,9 +15,6 @@ public class ProductController {
     @Autowired
     public ProductService productService;
 
-    @Autowired
-    public ProductRepository productRepository;
-
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/products")
     public List<Product> getAllProducts() {
@@ -26,7 +23,7 @@ public class ProductController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/products/{id}")
-    public void deleteProduct(Long id) {
+    public void deleteProduct(@PathVariable Long id) {
        productService.deleteById(id);
     }
 
