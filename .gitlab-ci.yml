@@ -27,11 +27,14 @@ deploy_to_production:
 push_to_github:
   stage: push_to_github
   script:
-    - git remote add github https://github.com/avenarl/inventory.git
-    - git push github HEAD:feature/product-list --force
+    - git config --global user.email "ravencarlostrodrigo@gmail.com"
+    - git config --global user.name "Raven Rodrigo"
+    - git remote add github https://avenarl:${GITHUB_ACCESS_TOKEN}@github.com/inventory.git
+    - git push github HEAD:branch_name --force
   only:
     - /^feature\/*/
     - develop
     - master
   variables:
     GIT_STRATEGY: none
+
