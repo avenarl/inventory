@@ -29,12 +29,10 @@ push_to_github:
   script:
     - git config --global user.email "ravencarlostrodrigo@gmail.com"
     - git config --global user.name "Raven Rodrigo"
-    - git remote add github https://avenarl:${GITHUB_TOKEN}@github.com/inventory.git
-    - git push github HEAD:branch_name --force
+    - git remote add github https://github.com/inventory.git
+    - git checkout ${CI_COMMIT_REF_NAME}
+    - git push github ${CI_COMMIT_REF_NAME} --force
   only:
     - /^feature\/*/
     - develop
     - master
-  variables:
-    GIT_STRATEGY: none
-
