@@ -29,7 +29,7 @@ push_to_github:
   script:
     - git config --global user.email "ravencarlostrodrigo@gmail.com"
     - git config --global user.name "Raven Rodrigo"
-    - git remote add github https://avenarl:${GITHUB_ACCESS_TOKEN}@github.com/inventory.git
+    - git remote add github https://avenarl:${GITHUB_TOKEN}@github.com/inventory.git
     - git push github HEAD:branch_name --force
   only:
     - /^feature\/*/
