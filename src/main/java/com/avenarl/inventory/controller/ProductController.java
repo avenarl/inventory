@@ -4,6 +4,8 @@ import com.avenarl.inventory.model.Product;
 import com.avenarl.inventory.repository.ProductRepository;
 import com.avenarl.inventory.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +31,10 @@ public class ProductController {
        return ResponseEntity.noContent().build();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/")
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+        Product newProduct = productService.addProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newProduct);
+    }
 }
