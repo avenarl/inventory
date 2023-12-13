@@ -25,4 +25,10 @@ public class ProductServiceImpl implements ProductService {
     public Product addProduct(Product product) {
         return productRepository.save(product);
     }
+
+    public Product updateProduct(Product product, Long id) {
+        // find first the id
+        Product productUpdate = productRepository.findById(id).get();
+        return productRepository.save(productUpdate);
+    }
 }
