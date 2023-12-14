@@ -18,6 +18,8 @@ public class ProductController {
     @Autowired
     public ProductService productService;
 
+    public ProductRepository productRepository;
+
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/products")
     public List<Product> getAllProducts() {
@@ -36,5 +38,15 @@ public class ProductController {
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         Product newProduct = productService.addProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(newProduct);
+    }
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<Product> updateProduct(@RequestBody Product product, @PathVariable Long id) {
+        Product updatedProduct = productService.updateProduct(product, id);
+        if(updatedProduct == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+        }
     }
 }
