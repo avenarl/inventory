@@ -32,4 +32,13 @@ public class ProductServiceTest {
         verify(productRepository, times(1)).deleteById(productId);
 
     }
+
+    @Test
+    public void testUpdateProduct(){
+        Product product = new Product();
+        product.setId(2L);
+        product.setName("Test Product");
+        productRepository.save(product);
+        verify(productRepository, times(1)).save(product);
+    }
 }
