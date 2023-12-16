@@ -42,5 +42,12 @@ public class ProductControllerTest {
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals(product, responseEntity.getBody());
     }
+
+    @Test
+    void deleteProductTest(){
+        ResponseEntity<Void> responseEntity = productController.deleteProduct(2L);
+
+        assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
+    }
 }
 
