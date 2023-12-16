@@ -28,4 +28,10 @@ export class AppComponent implements OnInit {
       this.getProducts();
     })
   }
+
+  updateProduct(id: number, product: Product) {
+    this.productService.updateProduct(id, product).subscribe(() => {
+      this.getProducts();
+    })
+  }
 }
