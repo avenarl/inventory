@@ -11,10 +11,14 @@
       <tbody>
         <tr *ngFor="let product of products">
           <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
+          <td> <div *ngIf="!product.isEditing">{{ product.name }}</div>
+            <input *ngIf="product.isEditing" [(ngModel)]="product.name" type="text" class="form-control"/>
+          </td>
           <td>
-            <button class="btn btn-primary btn-sm">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Delete</button>
+            <button *ngIf="!product.isEditing" (click)="enableEditing(product)" class="btn btn-primary btn-sm">Edit</button>
+            <button *ngIf="product.isEditing" (click)="updateProduct(product.id, product)" class="btn btn-primary btn-sm">Save</button>
+            <button *ngIf="product.isEditing" (click)="cancelEditing(product)" class="btn btn-warning btn-sm">Cancel</button>
+            <button (click)="deleteProduct(product.id)" class="btn btn-danger btn-sm">Delete</button>
           </td>
         </tr>
       </tbody>
