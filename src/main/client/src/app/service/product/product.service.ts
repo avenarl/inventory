@@ -16,12 +16,7 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.apiUrl}/products`);
   }
 
-<<<<<<< HEAD
-  deleteProduct(): Observable<Product[]> {
-    return this.http.delete<Product[]>(`${this.apiUrl}/products/{id}`);
-=======
   deleteProduct(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/products/${id}`, { responseType: 'text' });
->>>>>>> feature/product-delete
   }
-}
+} 
