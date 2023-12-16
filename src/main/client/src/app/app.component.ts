@@ -22,4 +22,10 @@ export class AppComponent implements OnInit {
       this.products = products;
     })
   }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.getProducts();
+    })
+  }
 }
