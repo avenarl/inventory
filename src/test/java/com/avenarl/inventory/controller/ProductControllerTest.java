@@ -49,5 +49,15 @@ public class ProductControllerTest {
 
         assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
     }
+
+    @Test
+    void getAllProducts(){
+        when(productService.addProduct(any(Product.class))).thenReturn(product);
+
+        ResponseEntity<Product> responseEntity = productController.addProduct(product);
+
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+        assertEquals(product, responseEntity.getBody());
+    }
 }
 
