@@ -29,9 +29,25 @@ export class AppComponent implements OnInit {
     })
   }
 
+  // For Update method
   updateProduct(id: number, product: Product) {
-    this.productService.updateProduct(id, product).subscribe(() => {
-      this.getProducts();
-    })
+    if(product.isEditing){
+      this.productService.updateProduct(product.id, product).subscribe(() => {
+        product.isEditing = false;
+        this.getProducts();
+      }, error => {
+        console.log(error);
+      });
+      
+    }
+  }
+
+  enableEditing(product: Product) {
+    this.products.forEach(p => p.isEditing = false);
+    product.isEditing = true;
+  }
+
+  cancelEditing(product: Product) {
+    product.isEditing = false;
   }
 }
