@@ -19,13 +19,13 @@ public class ProductServiceTest {
     private ProductRepository productRepository;
 
     @Test
-
-    public void addProduct() {
+    public void testAddProduct() {
         Product product = new Product();
         product.setId(2L);
         product.setName("Test Product");
     }
 
+    @Test
     public void testDeleteProduct(){
         Long productId = 1L;
         productRepository.deleteById(productId);
