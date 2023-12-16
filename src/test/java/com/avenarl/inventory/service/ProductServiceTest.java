@@ -23,6 +23,8 @@ public class ProductServiceTest {
         Product product = new Product();
         product.setId(2L);
         product.setName("Test Product");
+        productRepository.save(product);
+        verify(productRepository, times(1)).save(product);
     }
 
     @Test
@@ -40,5 +42,14 @@ public class ProductServiceTest {
         product.setName("Test Product");
         productRepository.save(product);
         verify(productRepository, times(1)).save(product);
+    }
+
+    @Test
+    public void testGetProduct(){
+        Product product = new Product();
+        product.setId(2L);
+        product.setName("Test Product");
+        given(productRepository.findById(2L)).willReturn(java.util.Optional.of(product));
+        productRepository.findById(2L);
     }
 }
