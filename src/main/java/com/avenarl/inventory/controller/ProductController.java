@@ -34,7 +34,7 @@ public class ProductController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/")
+    @PostMapping("/products")
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         Product newProduct = productService.addProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(newProduct);
