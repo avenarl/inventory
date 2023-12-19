@@ -24,7 +24,7 @@ export class ProductService {
     return this.http.put(`${this.apiUrl}/products/${id}`, product);
   }
 
-  addProduct(product: Product): Observable<Product> {
+  addProduct(product: Partial<Product>): Observable<Product> {
     return this.http.post<Product>(`${this.apiUrl}/products`, product);
   }
 } 
