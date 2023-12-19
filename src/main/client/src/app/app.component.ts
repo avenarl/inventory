@@ -9,6 +9,7 @@ import { Product } from './model/product.model';
 })
 export class AppComponent implements OnInit {
   title = 'client';
+  newProductName: string = '';
   products: Product[] = [];
 
   constructor(private productService: ProductService) {}
@@ -49,5 +50,18 @@ export class AppComponent implements OnInit {
 
   cancelEditing(product: Product) {
     product.isEditing = false;
+  }
+
+  addProduct() {
+    const product: Partial<Product> = {
+      name: this.newProductName,
+      isEditing: false
+    }
+    this.productService.addProduct(product as Product).subscribe(() => {
+      this.newProductName = '';
+      this.getProducts();
+    }, error => {
+      console.log(error);
+    });
   }
 }
