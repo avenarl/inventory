@@ -15,4 +15,10 @@ public class User {
 
     @Column
     private String password;
+
+    public User(Long uid, String username, String password) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+    }
 }
