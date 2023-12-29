@@ -16,7 +16,7 @@
             <input *ngIf="product.isEditing" [(ngModel)]="product.name" type="text" class="form-control"/>
           </td>
           <td> <div *ngIf="!product.isEditing">{{ product.price }}</div>
-            <input *ngIf="product.isEditing" [(ngModel)]="product.price" type="text" class="form-control"/>
+            <input *ngIf="product.isEditing" [(ngModel)]="product.price" type="number" class="form-control"/>
           <td>
             <button *ngIf="!product.isEditing" (click)="enableEditing(product)" class="btn btn-primary btn-sm">Edit</button>
             <button *ngIf="product.isEditing" (click)="updateProduct(product.id, product)" class="btn btn-primary btn-sm">Save</button>
