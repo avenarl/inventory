@@ -10,7 +10,7 @@ import { Product } from './model/product.model';
 export class AppComponent implements OnInit {
   title = 'client';
   newProductName: string = '';
-  newPrice: number = 0;
+  newProductPrice: number = 0;
   products: Product[] = [];
 
   constructor(private productService: ProductService) {}
@@ -56,12 +56,12 @@ export class AppComponent implements OnInit {
   addProduct() {
     const product: Partial<Product> = {
       name: this.newProductName,
-      price: this.newPrice,
+      price: this.newProductPrice,
       isEditing: false
     }
     this.productService.addProduct(product as Product).subscribe(() => {
       this.newProductName = '';
-      this.newPrice = 0;
+      this.newProductPrice = 0;
       this.getProducts();
     }, error => {
       console.log(error);
