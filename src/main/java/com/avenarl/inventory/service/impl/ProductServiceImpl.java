@@ -35,6 +35,8 @@ public class ProductServiceImpl implements ProductService {
             Product existingProduct = existingProductOptional.get();
             if(product.getName() != null)
                 existingProduct.setName(product.getName());
+            if(product.getPrice() != null)
+                existingProduct.setPrice((product.getPrice()));
             if(product.getId() != null)
                 existingProduct.setId(product.getId());
             return productRepository.save(existingProduct);
