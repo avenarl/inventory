@@ -13,6 +13,9 @@ public class Product {
     @Column
     private String name;
 
+    @Column
+    private Integer price;
+
     public Product() {
 
     }
@@ -32,4 +35,5 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+
 }
